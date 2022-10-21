@@ -26,7 +26,6 @@ jobs:
 #        working-directory: /tools/setup
 #        run: python install_dep.py
       - name: 'Compile p4sde dpdk target'
-        working-directory: ./build/storage/tests/ut
         run: |
           PWD=$pwd
           export SDE=$PWD
