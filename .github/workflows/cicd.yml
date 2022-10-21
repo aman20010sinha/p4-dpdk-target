@@ -29,12 +29,3 @@ jobs:
         run: |
           PWD=$pwd
           export SDE=$PWD
-          export SDE_INSTALL=$SDE/install
-          mkdir -p $SDE_INSTALL
-          echo $SDE
-          echo $SDE_INSTALL
-          cd $SDE/p4-sde
-          ./autogen.sh
-          ./configure --prefix=$SDE_INSTALL --enable-mev
-          make -j4
-          make install
