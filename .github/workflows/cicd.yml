@@ -23,7 +23,7 @@ jobs:
         with:
           path: p4-sde
       - name: 'Install dependencies'
-        working-directory: ./tools/setup
+        working-directory: /tools/setup
         run: python install_dep.py
       - name: 'Compile p4sde dpdk target'
         working-directory: ./build/storage/tests/ut
