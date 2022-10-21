@@ -1,0 +1,30 @@
+name: "P4SDE CI Build pipeline"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+concurrency:
+  # if workflow for PR or push is already running stop it, and start new one
+  group: storage-ci-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  build_p4dpdk_ubuntu:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Install dependencies'
+        working-directory: ./tools/setup
+        run: python install_dep.py
+      - name: 'Compile p4sde dpdk target'
+        working-directory: ./build/storage/tests/ut
+        run: |
+          chmod -R 777 run.sh
+          ./run.sh 
