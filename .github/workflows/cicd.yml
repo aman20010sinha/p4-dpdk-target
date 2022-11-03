@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build_p4dpdk_ubuntu:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: fedora
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
@@ -28,4 +28,4 @@ jobs:
       - name: 'Compile p4sde dpdk target'
         run: |
               mkdir ${GITHUB_WORKSPACE}/install
-              bash build-p4sde.sh -s ${GITHUB_WORKSPACE}/install
+              bash build-p4sde.sh -s ${GITHUB_WORKSPACE}/install -d
