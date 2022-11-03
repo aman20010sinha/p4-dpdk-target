@@ -65,7 +65,7 @@ export ENABLE_PARALLEL_COMPILE="$NUM_THREADS"
 ./autogen.sh
 ./configure --prefix=$SDE_INSTALL_PATH
 
-make $NUM_THREADS || exit 1
-make $NUM_THREADS install || exit 1
+make || exit 1
+make install || exit 1
 
 set +e
