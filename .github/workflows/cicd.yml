@@ -27,5 +27,10 @@ jobs:
         run: python install_dep.py
       - name: 'Compile p4sde dpdk target'
         run: |
-              mkdir ${GITHUB_WORKSPACE}/install
-              bash build-p4sde.sh -s ${GITHUB_WORKSPACE}/install -d
+             export SDE=${GITHUB_WORKSPACE}
+             mkdir install
+             export SDE_INSTALL=${GITHUB_WORKSPACE}/install
+             ./autogen.sh
+             ./configure --prefix=$SDE_INSTALL
+             make 
+             make install
