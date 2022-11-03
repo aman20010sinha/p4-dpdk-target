@@ -24,7 +24,11 @@ jobs:
              submodules: 'recursive'
       - name: 'Install dependencies'
         working-directory: ./tools/setup
-        run: python install_dep.py
+        run: |
+              sudo apt update -y
+              python install_dep.py
+      - name: 'Meson version'
+        run: meson --version
       - name: 'Compile p4sde dpdk target'
         run: |
              export SDE=${GITHUB_WORKSPACE}
