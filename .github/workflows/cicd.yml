@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build_p4dpdk_ubuntu:
     timeout-minutes: 60
-    runs-on: fedora
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
